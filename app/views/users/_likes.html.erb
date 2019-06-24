@@ -1,0 +1,23 @@
+<% if microposts.any? %>
+
+<ul>
+    <% microposts.each do |micropost| %>
+    <li class="media">
+        <img class="mr-2 rounded" src="<%= gravatar_url(@user, { size: 50 }) %>" alt="">
+        <div class="media-body">
+            <div>
+                <%= micropost.user.name %>
+            </div>
+            <div>
+                <p>
+                    <%= micropost.content %>
+                </p>
+            </div>
+        </div>
+    </li>
+    <% end %>
+</ul>
+
+<%= paginate microposts %>
+
+<% end %>
